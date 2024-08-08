@@ -1,24 +1,3 @@
-# dags/churn.py
-
-# import pendulum
-
-# from airflow import DAG
-# from airflow.operators.dummy_operator import DummyOperator
-# from datetime import timedelta
-
-
-# with DAG(
-#         'dummy',
-#         default_args={'owner': 'Me', 'retries': 1, 'retry_delay':timedelta(minutes=10)},
-#         schedule='@once',
-#         start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),           
-#         catchup=False,
-#         tags=["ETL"]
-#         ) as dag: 
-#     dummy = DummyOperator(task_id='dummy_task', dag=dag)
-
-# dummy
-
 import pendulum
 from airflow.decorators import dag, task
 
