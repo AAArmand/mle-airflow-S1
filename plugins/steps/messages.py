@@ -2,14 +2,14 @@ from airflow.providers.telegram.hooks.telegram import TelegramHook # импор�
 
 def send_telegram_success_message(context): # на вход принимаем словарь со контекстными переменными
     hook = TelegramHook(telegram_conn_id='test',
-                        token='7291353028:AAG4nHLo3nKEHmsxtS1iosi_GArbHkxM3O4',
-                        chat_id='-4277793687')
+                        token='*',
+                        chat_id='*')
     dag = context['dag']
     run_id = context['run_id']
     
     message = f'Исполнение DAG {dag} с id={run_id} прошло успешно!' # определение текста сообщения
     hook.send_message({
-        'chat_id': '-4277793687',
+        'chat_id': '*',
         'text': message
     })
 
@@ -17,13 +17,13 @@ def send_telegram_success_message(context): # на вход принимаем �
 def send_telegram_failure_message(context):
 	# ваш код здесь #
     hook = TelegramHook(telegram_conn_id='test',
-                        token='7291353028:AAG4nHLo3nKEHmsxtS1iosi_GArbHkxM3O4',
-                        chat_id='-4277793687')
+                        token='*',
+                        chat_id='*')
     key = context['task_instance_key_str']
     run_id = context['run_id']
     
     message = f'Исполнение DAG c ключом {key} с id={run_id} не прошла :(' # определение текста сообщения
     hook.send_message({
-        'chat_id': '-4277793687',
+        'chat_id': '*',
         'text': message
     })
